@@ -5,7 +5,6 @@ import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
   const cartItemRemoveHandler = (id) => {
@@ -41,7 +40,7 @@ const Cart = (props) => {
         <button className={classes["button--alt"]} onClick={props.onClose}>
           Close
         </button>
-        {hasItems && <button className={classes.button}>Order</button>}
+        {hasItems && <button className={classes.button} onClick={props.onOrder}>Order</button>}
       </div>
     </Modal>
   );
